@@ -35,7 +35,8 @@ module.controller("controller", [ "$scope","$window", "$location", "service", '$
 			$scope.forms2 = [
 		        {}
 		    ];
-		
+
+
 			$scope.submitform = function(){
 				//console.log($scope.task);
 				var paytop = document.getElementById('paymentCheckTop').checked;
@@ -188,17 +189,20 @@ module.controller("controller", [ "$scope","$window", "$location", "service", '$
 				});		
 			}
 			
-			$scope.loginUser = function(){
+			$scope.loginUserr = function(){
+				console.log("Nfgadsfasgadfsf");
+
 				service.loginUser($scope.user).then(function(response){
 					if(!response.data){
-						//console.log("Negative response");
+						console.log("Negative response");
 					}
 					else{
 						//console.log("logged");
 						$cookies.put('UserId', response.data);
 						$scope.cookieId = response.data;
-						//console.log($scope.cookieId);
-						window.location.href = 'http://193.205.92.133:8080/ChorChain/homePage.html';
+						console.log('HERe WE ARE');
+						console.log($scope.cookieId);
+						window.location.href = 'http://localhost:8888/ChorChain_war_exploded/homePage.html';
 					}
 					
 				});		
@@ -271,7 +275,7 @@ module.controller("controller", [ "$scope","$window", "$location", "service", '$
 				service.deploy(model, instanceId, $cookies.get('UserId')).then(function(response){
 					//console.log(response.data);
 					sessionStorage.setItem('contract', JSON.stringify(response.data));
-					$window.location.href = 'http://193.205.92.133:8080/ChorChain/deploy.html';
+					$window.location.href = 'http://localhost:8888/ChorChain_war_exploded/deploy.html';
 				});
 			}
 			

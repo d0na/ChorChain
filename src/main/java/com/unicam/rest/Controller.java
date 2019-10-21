@@ -228,7 +228,7 @@ public class Controller {
 		em.close();
 		//em.flush();
 		
-		return "<meta http-equiv=\"refresh\" content=\"0; url=http://193.205.92.133:8080/ChorChain/homePage.html\">";
+		return "<meta http-equiv=\"refresh\" content=\"0; url=http://localhost:8888/ChorChain_war_exploded/homePage.html\">";
 	}
 
 	@POST
